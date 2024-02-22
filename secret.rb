@@ -3,10 +3,11 @@ require_relative "colors"
 class Secret
   using Colors
 
-  attr_accessor :secret_color
+  attr_accessor :secret_color, :color_pool
 
   def initialize
-    @secret_color = generate_secret_color
+    @color_pool = ["RED", "GREEN", "BLUE", "YELLOW"]
+    @secret_color = []
   end
 
   def display_secret
@@ -19,32 +20,20 @@ class Secret
     puts "---------------------------------"
   end
 
-  # def game_info
-  #   puts ""
-  #   puts "Lets play Mastermind!"
-  #   puts ""
-  #   puts "R is red".fg_color(:red) + " / " + "G is green".fg_color(:green) +
-  #         " / " + "B is blue".fg_color(:blue) + " / " + "Y is yellow".fg_color(:yellow)
-  #   puts ""
-  #   puts "secret_color CODE is:"
-
-  # end
-
-  def generate_secret_color
-    secret_color = []
-    4.times do
-      random = rand(4)
-      if random == 0
-        secret_color.append("R".fg_color(:red))
-      elsif random == 1
-        secret_color.append("B".fg_color(:blue))
-      elsif random == 2
-        secret_color.append("G".fg_color(:green))
-      else
-        secret_color.append("Y".fg_color(:yellow))
+  def generate_secret_color(role)
+    if role == "creator"
+      temp_color = color_pool.sample
+      secret_color.append(temp_color.fg_color(temp_color.downcase.to_sym))
+      exit
+    elsif role == "guesser"
+      4.times do
+        temp_color = color_pool.sample
+        secret_color.append(temp_color.slice(0).fg_color(temp_color.downcase.to_sym))
       end
+      secret_color
+    else
+      return "Error color not found!"
     end
-    secret_color
   end
 
 end

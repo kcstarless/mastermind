@@ -5,12 +5,23 @@ require_relative "secret"
 require_relative "guess"
 require_relative "game"
 
-NUMBER_OF_GUESSES = 12
-hint_index = []
-
 secret = Secret.new
 guess = Guess.new
 new_game = Game.new
+
+NUMBER_OF_GUESSES = 12
+hint_index = []
+role = nil
+
+# Creator or Guesser?
+loop do
+  print "Do you want to be the creator or guesser of secret code? "
+  role = gets.chomp.downcase
+  if (role == "creator" || role == "guesser")
+    secret.generate_secret_color(role)
+    break
+  end
+end
 
 i = 0
 
