@@ -1,3 +1,10 @@
+=begin
+WELCOME to Mastermind!
+----------------------
+Play a game
+
+=end
+
 require_relative "text_module"
 require_relative "game_module"
 require_relative "display_module"

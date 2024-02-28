@@ -32,4 +32,10 @@ module DisplayModule
     end
     puts "---------------------------------"
   end
+
+  def display_test(arr)
+    arr.each do |i|
+      print "|   #{i}   "
+    end
+  end
 end

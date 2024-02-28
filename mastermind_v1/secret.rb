@@ -21,10 +21,14 @@ class Secret
   end
 
   def generate_secret_color(role)
+
     if role == "creator"
-      temp_color = color_pool.sample
-      secret_color.append(temp_color.fg_color(temp_color.downcase.to_sym))
-      exit
+      4.times do
+        print "Place your secret color(red, green, blue or yellow) peg: "
+        player_pick = gets.chomp
+        secret_color.append(player_pick.slice(0).upcase.fg_color(player_pick.downcase.to_sym))
+      end
+
     elsif role == "guesser"
       4.times do
         temp_color = color_pool.sample

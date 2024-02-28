@@ -3,15 +3,7 @@ require_relative "guess"
 
 class Game
 
-  # def game_info
-  #   puts ""
-  #   puts "Lets play Mastermind!"
-  #   puts ""
-  #   puts "R is red".fg_color(:red) + " / " + "G is green".fg_color(:green) +
-  #         " / " + "B is blue".fg_color(:blue) + " / " + "Y is yellow".fg_color(:yellow)
-  #   puts ""
-  #   puts "secret_color CODE is:"
-  # end
+
 
   # Out of position
   def position(secret_copy, guess_copy)

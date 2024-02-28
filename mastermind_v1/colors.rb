@@ -12,7 +12,6 @@ module Colors
 
   refine String do
     def fg_color(color_name)
-      puts color_name
       rgb_val = RGB_COLOR_MAP[color_name]
       "\e[38;2;#{rgb_val}m#{self}\e[0m"
     end

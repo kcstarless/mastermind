@@ -3,8 +3,9 @@ require_relative "colors"
 class Guess
   using Colors
 
-  attr_accessor :guess_a_color, :guess_current, :guess_history
+  attr_accessor :guess_a_color, :guess_current, :guess_history, :guess
   def initialize
+    @guess = []
     @guess_current = []
     @guess_history = []
     @guess_a_color = nil
@@ -53,6 +54,7 @@ class Guess
         break
       end
     end
+    self.guess_current = guess_current
     guess_history.concat([guess_current])
     return guess_current
   end
