@@ -49,9 +49,9 @@ class Creator
     when 5
       colors[1], colors[3] = colors[3], colors[1] # swap odd index.
     when 6
-      colors[1], colors[2] = colors[2], colors[1] # swap middle again.
+      colors[2], colors[3] = colors[3], colors[2] # swap right again.
     when 7
-      colors[0], colors[3] = colors[3], colors[0] # swap edge again.
+      colors[1], colors[2] = colors[1], colors[2] # swap middle again.
     else
       colors.shuffle
     end

@@ -30,8 +30,8 @@ module GameModule
     print creator_info()
     human = CreatorPlayer.new
     secret = human.create_secret()
-    rounds(human)
     display_secret(secret)
+    rounds(human)
   end
 
   def computer_creator()
